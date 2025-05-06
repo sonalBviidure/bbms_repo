@@ -1,0 +1,15 @@
+.container {
+    background-color: #fff;
+    padding: 30px;
+}
+
+h1 {
+    color: #007bff;
+}
+.latter{
+    color: #00b9fe!important;
+}
+.text-center{
+    color: black!important;
+    font-size: 40px!important;
+}

@@ -1,0 +1,272 @@
+.letter
+{
+    color: #00b9fe;
+}
+
+#carouselExampleSlidesOnly {
+    height: 400px; /* Set your desired height here */
+}
+
+.carousel-inner {
+    height: 100%;
+}
+
+.carousel-item {
+    height: 100%;
+}
+
+.carousel-item img {
+    height: 100%;
+    object-fit: cover; /* This property ensures that the image covers the entire carousel item */
+}
+
+
+.scrolling-text {
+    overflow: hidden;
+    white-space: nowrap;
+    background-color:black;
+    color: #fff;
+    word-spacing: 10px;
+}
+
+.scrolling-text marquee {
+    width: 100%;
+    behavior: scroll;
+    scrollamount: 5; /* Adjust the scrolling speed as needed */
+}
+
+
+.counter-section {
+    padding: 15px 0;
+    text-align: center;
+}
+
+.counter-item {
+    background-color: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    /* border: 2px solid #00b9fe;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); */
+    transition: transform 0.3s ease-in-out;
+}
+
+.counter-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.counter-section .icon {
+    font-size: 22px;
+    color: #02236d;
+    padding: 7px;
+}
+
+.counter {
+    font-size: 20px;
+    font-weight: bold;
+    color: #02236d;
+    }
+
+.counter-section .text {
+    font-size: 14px;
+    color: #02236d;
+    padding: 7px;
+}
+
+/* About Us*/
+
+.about-us {
+    padding: 0px 0;
+}
+
+.about-us .text {
+    flex: 1;
+    padding: 0 20px;
+}
+
+.about-us .image {
+    flex: 1;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.about-us img {
+    width: 100%;
+    height: 400px;
+    border-radius: 15px;
+}
+
+.about-us h1 {
+    color: #02236d;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.about-us p {
+    color: black!important;
+    line-height: 1.6;
+    font-size: 1.1em;
+}
+       
+.courses {
+    background-color: #464646;
+    padding: 30px 0px;
+}
+
+.courses .card {
+    height: 95px!important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* border: 2px solid #02236d; */
+    border-radius: 15px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.course-img {
+    height: 180px;
+}
+.courses .course-img {
+    height: 100px!important;
+    overflow: hidden;
+    border-radius: 15px 15px 0 0;
+}
+
+.courses .card img {
+   height: 180px!important;
+   width: 100%;
+    border-radius: 15px 15px 15px 15px;
+}
+
+
+.courses img:hover {
+    transform: scale(1.1);
+}
+
+.courses .course-info {
+    flex: 1;
+    padding: 20px;
+}
+.courses h1
+{
+    font-size: 2.5rem;
+}
+
+.courses h5 {
+    color: white;
+   }
+
+.courses p {
+    color: #666;
+    line-height: 1.6;
+}
+
+.card-body .btn-learn-more {
+    display: block;
+    width: 50%;
+    margin: 0 auto; /* Center the button */
+    margin-top: 40px; /* Adjust the top margin */
+    padding: 10px 10px;
+    border: #00b9fe;
+    background-color: #00b9fe;
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.card-body .btn-learn-more:hover {
+    background-color: #02236d;
+}
+ /*Event Section*/
+ .card {
+    background-color: #f1f4f4!important;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    margin-bottom: 30px;
+    box-sizing: border-box;
+    transition: transform 0.3s;
+  }
+  .card-body {
+    padding: 20px; /* Add padding for card content */
+    flex-grow: 1; /* Allow card body to expand within the card */
+  color: white;
+ 
+  }
+  
+  .card-text{
+    color: white!important;
+  }
+  P{
+    color: white !important; ;
+  }
+  .card-title{
+    color: white!important;
+  }
+  .square-img-container {
+    position: relative;
+    overflow: hidden;
+    padding-top: 100%; /* Create a square container based on percentage */
+  }
+  .square-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /* Ensure the image fills the square container */
+    object-fit: cover; /* Maintain aspect ratio and cover the container */
+  }
+  .card:hover {
+    transform: scale(1.05);
+  }
+  .icon{
+            color: #00b9fe;
+        }
+  
+  h1{
+      margin-top: 100px;
+      margin-bottom: 30px;
+  }
+  .location-icon {
+    color: #ff0000!important; /* Bootstrap primary color */
+  }
+
+  .calendar-icon {
+    color: #28a745; /* Bootstrap success color */
+  }
+
+  .contact-icon {
+    color: #dc3545; /* Bootstrap danger color */
+  }
+
+ .fas .fa-phone-alt{
+	font-weight: 900;
+	color: #50f808;
+ }
+ .fa-graduation-cap{
+    color: #00b9fe !important;
+ }
+ .fa-map-marker-alt{
+    color: #ff0000!important;
+ }
+ .fa-calendar-alt{
+    color: #00b9fe !important;
+ }
+ .fa-link {
+    color: #00b9fe !important;
+ }
+ .link{
+    color: #00b9fe !important;
+}
+.fa-map-marker{
+    color: #00b9fe !important;
+ }
+ .fa-briefcase {
+   
+    color: navy !important;
+}
+.testimonials-text p{
+    color: darkblue!important;
+}
