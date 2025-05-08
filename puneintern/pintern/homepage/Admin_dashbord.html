@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" />
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+    }
+    .dashboard {
+      display: flex;
+      min-height: 100vh;
+    }
+    .sidebar {
+      width: 250px;
+      background-color: #141515;
+      color: #ffffff;
+      padding: 15px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      transition: width 0.3s ease;
+      animation: slideInFromLeft 0.5s forwards;
+    }
+    .sidebar.hide {
+      width: 0;
+      overflow: hidden;
+    }
+    .sidebar h2 {
+      margin: 0 0 15px;
+      font-size: 24px;
+      text-align: center;
+      color: #f8f8f8;
+    }
+    .sidebar ul {
+      list-style: none;
+      color: #000;
+      padding: 0;
+      margin: 0;
+    }
+    .sidebar li {
+      margin-bottom: 10px;
+      color: #000;
+    }
+    .sidebar a {
+      color: #020202;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 15px;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+    .sidebar a:hover {
+      background-color:#007bff;
+      display: flex;
+    }
+    .sidebar .box {
+      background-color: #fcfdfe;
+      padding: 10px;
+      border-radius: 5px;
+    }
+    .sidebar .fa-chevron-down {
+      margin-left: auto;
+    }
+    .sidebar .section-link i {
+      margin-right: 10px;
+    }
+    .sidebar .dropdown-menu {
+      display: none;
+      padding-left: 0;
+      color: #080707;
+      margin-left: auto;
+      margin-right: auto;
+      border-radius: 5px;
+      background-color: #f8f5f5;
+      box-shadow: 0 4px 6px rgba(12, 12, 12, 0.1);
+      animation: fadeInDropdown 0.3s ease;
+    }
+    .sidebar .dropdown-menu.active {
+      display: block;
+    }
+    .sidebar .dropdown-menu-item {
+      padding: 10px 15px;
+      text-decoration: none;
+      color: #080808;
+      transition: background-color 0.3s ease;
+    }
+    .sidebar .dropdown-menu-item:hover {
+      background-color: #007bff;
+      color: rgb(7, 7, 7);
+    }
+
+    @keyframes slideInFromLeft {
+      0% {
+        width: 0;
+      }
+      100% {
+        width: 250px;
+      }
+    }
+    @keyframes fadeInDropdown {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .content {
+      flex: 1;
+      padding: 20px;
+      transition: all 0.3s ease;
+    }
+    .title-bar {
+      background-color: #343a40;
+      color: #ffffff;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .title-bar .welcome-message {
+      margin: 0;
+      font-size: 20px;
+    }
+    .title-bar .profile-info {
+      display: flex;
+      align-items: center;
+    }
+    .profile-info img {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+    .profile-dropdown-toggle {
+      color: #ffffff;
+      text-decoration: none;
+      cursor: pointer;
+      position: relative;
+    }
+    .profile-dropdown-menu {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      display: none;
+      z-index: 1;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+    .profile-info {
+      position: relative;
+    }
+    .profile-dropdown-toggle {
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+    .profile-info:hover .profile-dropdown-menu {
+      display: block;
+    }
+    .profile-dropdown-menu-item {
+      display: block;
+      padding: 10px 15px;
+      text-decoration: none;
+      color: #333;
+      transition: background-color 0.3s ease;
+    }
+    .profile-dropdown-menu-item:hover {
+      background-color: #3c91f3;
+    }
+
+    @media screen and (max-width: 768px) {
+      .sidebar {
+        width: 0;
+      }
+      .sidebar.hide {
+        width: 250px;
+      }
+      .dashboard {
+        flex-direction: column;
+      }
+      .content {
+        width: 100%;
+      }
+      .title-bar {
+        width: 100%;
+      }
+      .card {
+        width: calc(50% - 20px);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="dashboard">
+    <div id="sidebar" class="sidebar hide">
+      <h2>Admin Dashboard</h2>
+      <ul>
+        <li class="box">
+          <a href="#" class="dropdown-toggle section-link"><i class="fas fa-tachometer-alt"></i><b> Dashboard </b></a>
+        </li>
+        <li class="box">
+          <a href="#" class="dropdown-toggle section-link"><i class="fas fa-users"></i><b> Community </b><i class="fas fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="add_new_com.html">Add New Community</a></li>
+            <li><a href="#">View Communities</a></li>
+          </ul>
+        </li>
+        <li class="box">
+          <a href="#" class="dropdown-toggle section-link"><i class="fas fa-users"></i><b> Sub Community </b><i class="fas fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="add_new_sub_com.html">Add New Sub Community</a></li>
+            <li><a href="#">View Sub Communities</a></li>
+          </ul>
+        </li>
+        <li class="box">
+          <a href="#" class="dropdown-toggle section-link"><i class="fas fa-calendar-alt"></i><b> Event Organizer </b><i class="fas fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="add_eo_form.html">Add New Event Organizer</a></li>
+            <li><a href="#">View Events</a></li>
+          </ul>
+        </li>
+        <li class="box">
+          <a href="#" class="dropdown-toggle section-link"><i class="fas fa-user-tie"></i><b> Team Leader </b><i class="fas fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="add_tl_form.html">Add New Team Leader</a></li>
+            <li><a href="#">View Team Leaders</a></li>
+          </ul>
+        </li>
+        <li class="box">
+          <a href="#" class="dropdown-toggle section-link"><i class="fas fa-users"></i><b> Group Leader </b><i class="fas fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="add_gl_form.html">Add New Group Leader</a></li>
+            <li><a href="#">View Group Leaders</a></li>
+          </ul>
+        </li>
+        <li class="box">
+          <a href="#" class="dropdown-toggle section-link"><i class="fas fa-table"></i><b> Tables </b><i class="fas fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">ACS Table</a></li>
+            <li><a href="#">EACS Table</a></li>
+            <li><a href="#">MACS Table</a></li>
+          </ul>
+        </li>
+        <!-- Add more sidebar items here -->
+      </ul>
+    </div>
+    <div class="content">
+      <div class="title-bar">
+        <button id="toggle-sidebar"><i class="fas fa-bars"></i></button>
+        <h2 class="welcome-message">Welcome to Admin Dashboard</h2>
+        <div class="profile-info">
+          <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="User Image">
+          <span>John Doe</span>
+          <button class="profile-dropdown-toggle"><i class="fas fa-caret-down"></i></button>
+          <div class="profile-dropdown-menu">
+            <a href="#" class="profile-dropdown-menu-item">Profile</a>
+            <a href="#" class="profile-dropdown-menu-item">Logout</a>  
+          </div>
+        </div>
+      </div>
+      <div class="cards-container">
+        <div class="card">
+          <div class="card-icon"><i class="fas fa-users"></i></div>
+          <div class="card-info">
+            <h3>Communities</h3>
+            <p class="count" id="community-count">Loading...</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-icon"><i class="fas fa-users"></i></div>
+          <div class="card-info">
+            <h3>Sub Communities</h3>
+            <p class="count" id="sub-community-count">Loading...</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-icon"><i class="fas fa-calendar-alt"></i></div>
+          <div class="card-info">
+            <h3>Event Organizers</h3>
+            <p class="count" id="event-organizer-count">Loading...</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-icon"><i class="fas fa-user-tie"></i></div>
+          <div class="card-info">
+            <h3>Team Leaders</h3>
+            <p class="count" id="team-leader-count">Loading...</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-icon"><i class="fas fa-users"></i></div>
+          <div class="card-info">
+            <h3>Group Leaders</h3>
+            <p class="count" id="group-leader-count">Loading...</p>
+          </div>
+        </div>
+        <!-- Add more cards here -->
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var toggleSidebarBtn = document.getElementById('toggle-sidebar');
+      var sidebar = document.getElementById('sidebar');
+
+      toggleSidebarBtn.addEventListener('click', function () {
+        sidebar.classList.toggle('hide');
+      });
+
+      var dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+      dropdownToggles.forEach(function (toggle) {
+        toggle.addEventListener('click', function () {
+          var dropdownMenu = toggle.nextElementSibling;
+          dropdownMenu.classList.toggle('active');
+        });
+      });
+      
+
+      var profileDropdownToggle = document.querySelector('.profile-dropdown-toggle');
+      var profileDropdownMenu = document.querySelector('.profile-dropdown-menu');
+
+      profileDropdownToggle.addEventListener('click', function () {
+        profileDropdownMenu.classList.toggle('show');
+      });
+
+      // Dummy data simulation for counts (replace with actual data fetching)
+      setTimeout(function() {
+        document.getElementById("community-count").innerText = "100";
+        document.getElementById("sub-community-count").innerText = "50";
+        document.getElementById("event-organizer-count").innerText = "25";
+        document.getElementById("team-leader-count").innerText = "75";
+        document.getElementById("group-leader-count").innerText = "60";
+      }, 1500); // Simulating delay for loading data
+    });
+  </script>
+</body>
+</html>

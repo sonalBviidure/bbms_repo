@@ -1,0 +1,18 @@
+Project Name:- Prime Computers Services
+
+This are single-page website 
+
+Home:- When we click then It goes Home section on the same page. 
+
+Courses:- When we click then It goes Home section on the same page. In the Courses section have information about the courses which are available in Prime Computers Services.
+
+Internship:- When we click then It goes Internship section on the same page.  In internship, section has information about internship
+
+About:- When we click then It goes About section on the same page.  In the internship section have information about why we have to join Prime Computers Services.
+
+Gallery:- When we click then It goes Gallery section on the same page. In the Gallery section have some photos that are clicked in Prime Computers Services.
+
+Jobs:- When we click then It goes Jobs section on the same page. In Jobs section has information about the requirements of jobs.
+
+Contact:- When we click then It goes Contact section on the same page. In the Contact section have Contact information about Prime Computers Services.
+
