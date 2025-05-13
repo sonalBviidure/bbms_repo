@@ -7,6 +7,7 @@
     <link rel="icon" href="./admin/image/favicon.jpeg" type="image/x-icon">
     <title>Events</title>
 
+    <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/event.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -35,10 +36,12 @@ if ($result->num_rows > 0) {
         // Loop through the event images and create items
         for ($i = 1; $i <= 5; $i++) {
             $imageField = "event_image" . $i;
+            echo 'value of $imageField is ',$row[$imageField];
             echo '<div class="item">';
-            // echo '<img src="admin/' . base64_encode($row[$imageField]) . '" alt="Event Image ' . $i . '">';
-            echo'<img src="admin/' .$row[$imageField] . '" alt="Event Image" style="width:500px; height: 100%;">';
+            // Update the image path to match your actual folder structure
+            echo '<img src="./admin/image/uploads/' . $row[$imageField] . '" alt="Event Image" class="event-image">';
             echo '</div>';
+
         }
 
         echo '</div>';
@@ -63,8 +66,10 @@ if ($result->num_rows > 0) {
 ?>
 
 <!-- Include necessary CSS and JS for the slider -->
-<link rel="stylesheet" href="path/to/slider.css">
-<script src="path/to/slider.js"></script>
+<!-- Remove or fix this line -->
+<!-- Remove these lines -->
+<!-- <link rel="stylesheet" href="path/to/slider.css"> -->
+<!-- <script src="path/to/slider.js"></script> -->
 
         </div>
     </div>

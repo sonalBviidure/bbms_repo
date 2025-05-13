@@ -26,6 +26,7 @@
     white-space: nowrap;
     background-color: black;
     color: #fff;
+    height: 30px;
     word-spacing: 10px;
 }
 
@@ -279,17 +280,18 @@
  {
     height: 400px;
  }
+ /* Add these styles to your existing CSS file */
  .slider {
-     overflow: hidden;
      position: relative;
-     margin: 20px 0;
+     overflow: hidden;
+     margin: 20px auto;
  }
-
+ 
  .slider .list {
-     display: flex;
-     width: 100%;
+     position: relative;
+     left: 0;
+     transition: left 0.5s ease-in-out;
  }
-
  .slider .item {
      flex: 0 0 100%;
      padding: 0 15px;

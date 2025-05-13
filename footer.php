@@ -22,7 +22,7 @@
     <div class="container-fluid mt-3">
       <div class="row justify-content-center">
         <div class="col-md-6 text-center">
-          <p class="text-white">&copy; 2024 Developed By Sanity Technologies. All rights reserved.</p>
+          <p class="text-white">&copy; 2025 Developed By Peakprosys pvt ltd, Pune. All rights reserved.</p>
         </div>
         <div class="col-md-6 text-center" id="social-icon">
           <!-- Social Media Icons with Increased Size and Background Color -->

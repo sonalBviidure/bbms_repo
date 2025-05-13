@@ -120,7 +120,7 @@ if (isset($_POST['contact'])) {
                     <img src="image/index_1.jpg" class="d-block w-100" style="height: 400px;" alt="...">
                 </div>
                 <div class="carousel-item">
-                    <img src="image/index_2.jpg" class="d-block w-100" style="height: 400px;" alt="...">
+                    <img src="image/index_222.jpg" class="d-block w-100" style="height: 400px;" alt="...">
                 </div>
                 <div class="carousel-item">
                     <img src="image/index_3.jpg" class="d-block w-100" style="height: 400px;" alt="...">
@@ -186,7 +186,7 @@ if (isset($_POST['contact'])) {
 
     <section class="about-us" id="about-us">
         <div class="text-center">
-            <h1 class="m-5"><span class="letter">A</span>bout <span class="letter">U</span>s</h1>
+            <h1 class="m-5"><span class="letter">A</span>about <span class="letter">U</span>s</h1>
         </div>
         <div class="container">
             <div class="row">
@@ -432,118 +432,7 @@ if (isset($_POST['contact'])) {
             <h1><span class="letter">C</span>ontact <span class="letter">U</span>s</h1>
             <p>Feel free to reach out to us for any inquiries or assistance.</p>
 
-            <div class="contact-grid row">
-                <!-- Location on the left side -->
-                <div class="location col-md-6">
-                    <div class="google-map">
-                        <iframe 
-                            width="100%" 
-                            height="430" 
-                            frameborder="0" 
-                            style="border:0" 
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3783.240289279598!2d73.83936827549806!3d18.51804048257507!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x671286d36985f641%3A0x5493c024093ccb86!2sPeakprosys%20Solutions%20Pvt.%20Ltd.!5e0!3m2!1sen!2sin!4v1746513207903!5m2!1sen!2sin"
-                            allowfullscreen=""
-                            loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade">
-                        </iframe>
-                    </div>
-                </div>
-
-                <!-- Contact form on the right side -->
-                <div class="contact-form col-md-6">
-                    <form  method="post">
-                        <input type="text" class="form-control mb-1" placeholder="Name" name="name" required>
-
-                        <div class="row">
-                            <div class="col-md-6 ">
-                                <!-- Email input -->
-                                <div class=" mb-3">
-                                    <input type="email" class="form-control" placeholder="Email" name="email" required>
-                                </div>
-                            </div>
-                            <div class="col-md-6 ">
-                                <!-- Phone number input -->
-                                <div class=" mb-3">
-                                    <input type="tel" class="form-control " placeholder="Phone Number" name="phone"
-                                        required>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- New fields for state, district, subdistrict, and pincode -->
-                        <div class="row">
-                            <div class="col-md-6   mb-3">
-                                <select class="form-select form-control p-2" id="state" name="state"
-                                    onchange="loadDistricts()" required>
-                                    <option value="">Select State</option>
-                                    <option value="AndraPradesh">Andhra Pradesh</option>
-                                    <option value="ArunachalPradesh">Arunachal Pradesh</option>
-                                    <option value="Assam">Assam</option>
-                                    <option value="Bihar">Bihar</option>
-                                    <option value="Chhattisgarh">Chhattisgarh</option>
-                                    <option value="Goa">Goa</option>
-                                    <option value="Gujarat">Gujarat</option>
-                                    <option value="Haryana">Haryana</option>
-                                    <option value="HimachalPradesh">HimachalPradesh</option>
-                                    <option value="JammuKashmir">JammuKashmir</option>
-                                    <option value="Jharkhand">Jharkhand</option>
-                                    <option value="Kerala">Kerala</option>
-                                    <option value="MadhyaPradesh">MadhyaPradesh</option>
-                                    <option value="Sehore">Sehore</option>
-                                    <option value="Maharashtra">Maharashtra</option>
-                                    <option value="Manipur">Manipur</option>
-                                    <option value="Meghalaya">Meghalaya</option>
-                                    <option value="Mizoram">Mizoram</option>
-                                    <option value="Nagaland">Nagaland</option>
-                                    <option value="Odisha">Odisha</option>
-                                    <option value="Punjab">Punjab</option>
-                                    <option value="Rajasthan">Rajasthan</option>
-                                    <option value="Sikkim">Sikkim</option>
-                                    <option value="TamilNadu">TamilNadu</option>
-                                    <option value="Tripura">Tripura</option>
-                                    <option value="UttarPradesh">UttarPradesh</option>
-                                    <option value="Uttarakhand">Uttarakhand</option>
-                                    <option value="WestBengal">WestBengal</option>
-                                    <option value="AndamanNicobar">AndamanNicobar</option>
-                                    <option value="DamanDiu">DamanDiu</option>
-                                    <option value="Lakshadweep">Lakshadweep</option>
-                                    <option value="Delhi">Delhi</option>
-                                    <option value="Lakshadweep">Lakshadweep</option>
-                                    <option value="Puducherry">Puducherry</option>
-
-                                </select>
-                            </div>
-                            <div class="col-md-6  mb-3">
-                                <select id="district" name="district" class="form-control p-2"
-                                    onchange="loadSubDistricts()">
-                                    <option value="">Select District</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <div class="form-group">
-                                    <select id="subdistrict" name="subdistrict" class="form-control p-2">
-                                        <option value="">Select Sub District</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <div class="">
-                                    <input type="text" class="form-control" id="zip" name="zip" placeholder="Pin Code"
-                                        required>
-                                </div>
-                            </div>
-                        </div>
-                        <textarea class="form-control" placeholder="Message" name="message" rows="2"
-                            required></textarea>
-
-                        <button type="submit" name="contact" class="btn btn-primary">Send Message</button>
-                    </form>
-
-                </div>
-            </div>
+           
 
             <div class="additional-info">
                 <div class="row row-cols-1 row-cols-md-3 g-4 py-5">
@@ -586,22 +475,8 @@ if (isset($_POST['contact'])) {
             </div>
     </section>
 
-    <!-- Footer -->
-    <?php include('footer.php');?>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.js"></script>
-    <script src="js/review.js"></script>
-    <script src="js/dist.js"></script>
-    <script src="js/event.js"></script>
-
-    <!-- Matrix Section (Previously Courses) -->
+    <!-- Matrix Section -->
     <?php
-    // Check if user is logged in as a board member
     if(isset($_SESSION['board_member_id'])) { ?>
     <section class="matrices">
         <div class="container">
@@ -643,11 +518,48 @@ if (isset($_POST['contact'])) {
     </section>
     <?php } ?>
 
-    <!-- Continue with other sections -->
+    <!-- Footer -->
+    <?php include('footer.php');?>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.js"></script>
+    <script src="js/review.js"></script>
+    <script src="js/dist.js"></script>
+    <script src="js/event.js"></script>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const carousel = new bootstrap.Carousel(document.getElementById('carouselExampleControls'), {
+            interval: 1000,
+            wrap: true,
+            keyboard: false,
+            touch: true
+        });
+        carousel.cycle();
+
+        // About section scroll
+        if (window.location.hash === '#about-us') {
+            setTimeout(function() {
+                const aboutSection = document.getElementById('about-us');
+                if (aboutSection) {
+                    aboutSection.scrollIntoView({ 
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    window.scrollBy(0, -80);
+                }
+            }, 100);
+        }
+    });
+    </script>
 </body>
-
 </html>
-
+<style>
 .slider {
     position: relative;
     overflow: hidden;
@@ -711,3 +623,22 @@ document.addEventListener('DOMContentLoaded', function() {
     carousel.cycle();
 });
 </script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Check if URL has #about-us hash
+    if (window.location.hash === '#about-us') {
+        setTimeout(function() {
+            const aboutSection = document.getElementById('about-us');
+            if (aboutSection) {
+                aboutSection.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+                // Adjust for fixed navbar
+                window.scrollBy(0, -80);
+            }
+        }, 100);
+    }
+});
+</script>
+</body>
