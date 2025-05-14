@@ -109,7 +109,7 @@ body {
         <li class="nav-item"> <a class="nav-link text-white"style="font-size: 1.1rem;" href="events.php"><i class="fas fa-calendar-alt me-1" style="font-size: 1.1rem;"></i>Events</a></li>
         <li class="nav-item"><a class="nav-link text-white" style="font-size: 1.1rem;" href="gallery.php"><i class="fas fa-images me-1" style="font-size: 1.1rem;"></i>Gallery</a></li>
         <li class="nav-item"><a class="nav-link text-white" style="font-size: 1.1rem;" href="contact.php"><i class="fas fa-envelope me-1" style="font-size: 1.1rem;"></i>Contact</a></li>
-        <li class="nav-item"><a class="nav-link text-white" style="font-size: 1.1rem;" href="#matrices"><i class="fas fa-th-large me-1"></i>Matrix</a></li>
+        <li class="nav-item"><a class="nav-link text-white" style="font-size: 1.1rem;" href="matrices.php"><i class="fas fa-th-large me-1"></i>Matrix</a></li>
     </ul>
 
     <!-- LOGIN/REGISTER BUTTONS -->

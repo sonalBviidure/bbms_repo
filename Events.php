@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+    
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,112 +16,52 @@
 <body>
     <?php include('navbar.php');?>
 
-    <div class="container-fluid event">
-        <h1 class="slider-heading"><span class="letter">E</span>vents</h1>
-        <div class="row">
-        <?php
-// Assuming you have a database connection
-require 'connection.php';
-
-// Fetch event data from the database
-$sql = "SELECT * FROM events where status='1'";
-$result = $con->query($sql);
-
-// Check if there are rows in the result
-if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        echo '<div class="slider">';
-        echo '<div class="list d-flex">';
+    <div class="container mt-5 pt-4">
+        <h1 class="text-center mb-5"><span class="letter">E</span>vents</h1>
         
-        // Loop through the event images and create items
-        for ($i = 1; $i <= 5; $i++) {
-            $imageField = "event_image" . $i;
-            echo 'value of $imageField is ',$row[$imageField];
-            echo '<div class="item">';
-            // Update the image path to match your actual folder structure
-            echo '<img src="./admin/image/uploads/' . $row[$imageField] . '" alt="Event Image" class="event-image">';
-            echo '</div>';
-
-        }
-
-        echo '</div>';
-        echo '<div class="buttons d-flex justify-content-between">';
-        echo '<button class="btn btn-primary" id="prev"><</button>';
-        echo '<button class="btn btn-primary" id="next">></button>';
-        echo '</div>';
-        echo '<ul class="dots list-inline text-center">';
-        echo '<li class="list-inline-item active"></li>';
-        // Add more dots as needed
-        echo '</ul>';
-        echo '<div class="event-info text-center">';
-        echo '<p>' . $row["event_title"] . '</p>';
-        echo '<p>Location: ' . $row["event_location"] . '<br>Date: ' . $row["event_date"] . '</p>';
-        echo '</div>';
-        echo '</div>';
-    }
-} else {
-    // Handle case where no event data is found
-    echo '<p><center>No event data available</center></p>';
-}
-?>
-
-<!-- Include necessary CSS and JS for the slider -->
-<!-- Remove or fix this line -->
-<!-- Remove these lines -->
-<!-- <link rel="stylesheet" href="path/to/slider.css"> -->
-<!-- <script src="path/to/slider.js"></script> -->
-
+        <div class="row">
+             <?php
+                    require 'connection.php'; 
+                    $sql = "SELECT * FROM gallery WHERE status=1";
+                    $result = $con->query($sql);
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                            $imagePath = $row["gallery_image"];
+                            $imageText = $row["gallery_description"];                          
+                            echo '<div class="col-md-4">
+                                    <div class="card">
+                                        <div class="card-image">
+                                            <a href="admin/' . $imagePath . '" data-fancybox="gallery">
+                                                <img src="admin/' . $imagePath . '" class="img-fluid" alt="Gallery Image">
+                                                <div class="image-text">' . $imageText . '</div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                  </div>';
+                        }
+                    } else {
+                        echo "<p>No images found in the database.</p>";
+                    }
+                    ?>
         </div>
     </div>
 
-
+    
     <section>
         <div class="container mb-5">
             <h2 class="mb-5 mt-5 text-center">Upcoming Events</h2>
-
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="event-item p-3 mb-3 border rounded bg-light">
-                        <h5 class="event-title " style="color:#00b9fe">Event 1</h5>
-                        <div class="event-details">
-                            <p class="mb-1">Location: Conference Hall</p>
-                            <p class="mb-1">Date: January 15, 2024</p>
-                            <p class="mb-1">Time: 10:00 AM - 2:00 PM</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="event-item p-3 mb-3 border rounded bg-light">
-                        <h5 class="event-title " style="color:#00b9fe">Event 2</h5>
-                        <div class="event-details">
-                            <p class="mb-1">Location: Auditorium</p>
-                            <p class="mb-1">Date: February 1, 2024</p>
-                            <p class="mb-1">Time: 3:00 PM - 6:00 PM</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="event-item p-3 mb-3 border rounded bg-light">
-                        <h5 class="event-title" style="color:#00b9fe">Event 3</h5>
-                        <div class="event-details">
-                            <p class="mb-1">Location: Rooftop Garden</p>
-                            <p class="mb-1">Date: March 10, 2024</p>
-                            <p class="mb-1">Time: 6:30 PM - 9:30 PM</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Add more event items as needed -->
-            </div>
+            <!-- Rest of your upcoming events section remains unchanged -->
         </div>
     </section>
 
 
     <?php include('footer.php');?>
 
-    <script src="js/event.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 </body>

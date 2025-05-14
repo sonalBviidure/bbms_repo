@@ -16,7 +16,7 @@ if ($result) {
     if ($row) {
         $aboutUsText = $row['about_us_text'];
         $aboutUsImage = $row['about_us_image'];
-    } 
+    }
 }
 if (isset($_POST['contact'])) {
     $name = $_POST["name"];
@@ -28,13 +28,14 @@ if (isset($_POST['contact'])) {
     $pincode = $_POST["zip"];
     $message = $_POST["message"];
 
-    $sql = "INSERT INTO leads (l_name, l_email, l_phone, l_state, l_district, l_subdistrict, l_pincode, l_message) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";    $stmt = $con->prepare($sql);
+    $sql = "INSERT INTO leads (l_name, l_email, l_phone, l_state, l_district, l_subdistrict, l_pincode, l_message) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+    $stmt = $con->prepare($sql);
 
     if ($stmt) {
         $stmt->bind_param("ssssssss", $name, $email, $phone, $state, $district, $subdistrict, $pincode, $message);
-        
+
         if ($stmt->execute()) {
-            echo'  <script>
+            echo '  <script>
             document.addEventListener(\'DOMContentLoaded\', function () {
                 Swal.fire({
                     title: "Congratulations",
@@ -65,7 +66,7 @@ if (isset($_POST['contact'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="./admin/image/favicon.jpeg" type="image/x-icon">
-    
+
     <title>BBMS</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -75,45 +76,45 @@ if (isset($_POST['contact'])) {
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/review.css">
     <link rel="stylesheet" href="css/team.css">
-    
+
     <!-- Include SweetAlert2 library -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<style>
-.categories .card {
-    transition: transform 0.3s;
-    border: none;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
+    <style>
+        .categories .card {
+            transition: transform 0.3s;
+            border: none;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
 
-.categories .card:hover {
-    transform: translateY(-5px);
-}
+        .categories .card:hover {
+            transform: translateY(-5px);
+        }
 
-.categories .card-img-top {
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-}
+        .categories .card-img-top {
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
 
-.categories .card-body {
-    padding: 1.25rem;
-}
+        .categories .card-body {
+            padding: 1.25rem;
+        }
 
-.categories .btn-primary {
-    margin-top: 10px;
-}
-</style>
+        .categories .btn-primary {
+            margin-top: 10px;
+        }
+    </style>
 
 
 </head>
 
 <body>
-    <?php include('navbar.php');?>
+    <?php include('navbar.php'); ?>
 
     <!-- Main-Slider -->
-    <div class="main-slider" style="margin-top:68px">
-        <div class="scrolling-text">
+    <div class="main-slider" style="margin-top: 70px;">
+        <!-- <div class="scrolling-text">
             <marquee>Empowering Business Networking Across Maharashtra | Join Matrix Groups in Pune, Kothrud, Tilak Road, Katraj & Narhe | Explore Business Opportunities, Share Referrals & Attend Weekly Meetings | Vacancies & Business Posts Updated Live | Contact Matrix Admins for More Info | Internship & Collaboration Opportunities for Students & Startups Available Now!</marquee>
-        </div>
+        </div> -->
         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
@@ -132,11 +133,13 @@ if (isset($_POST['contact'])) {
                     <img src="image/new_slider_2.jpg" class="d-block w-100" style="height: 400px;" alt="...">
                 </div>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Previous</span>
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                data-bs-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Next</span>
             </button>
@@ -157,24 +160,41 @@ if (isset($_POST['contact'])) {
                     <div class="text">Successfully Completed</div>
                 </div>
 
-                <!-- Changed Batches to Matrices -->
+
+
+                <!-- Matrices Counter -->
                 <div class="col-lg-3 col-md-6 col-sm-12 counter-item mb-4">
                     <div class="icon"><i class="fas fa-graduation-cap"></i></div>
-                    <div class="counter" data-count="5">0</div>
+                    <?php
+                    $matrix_sql = "SELECT COUNT(*) as matrix_count FROM matrices WHERE status = 1";
+                    $matrix_result = $con->query($matrix_sql);
+                    $matrix_count = ($matrix_result && $matrix_result->num_rows > 0) ? $matrix_result->fetch_assoc()['matrix_count'] : 0;
+                    ?>
+                    <div class="counter" data-count="<?php echo $matrix_count; ?>"><?php echo $matrix_count; ?></div>
                     <div class="text">Matrices</div>
                 </div>
-
-                <!-- Changed Career Nurtured to Categories -->
+                <!-- Categories Counter -->
                 <div class="col-lg-3 col-md-6 col-sm-12 counter-item mb-4">
                     <div class="icon"><i class="fas fa-briefcase"></i></div>
-                    <div class="counter" data-count="12">0</div>
+                    <?php
+                    $categories_sql = "SELECT COUNT(*) as category_count FROM categories WHERE status = 1";
+                    $categories_result = $con->query($categories_sql);
+                    $category_count = ($categories_result && $categories_result->num_rows > 0) ? $categories_result->fetch_assoc()['category_count'] : 0;
+                    ?>
+                    <div class="counter" data-count="<?php echo $category_count; ?>"><?php echo $category_count; ?>
+                    </div>
                     <div class="text">Categories</div>
                 </div>
 
-                <!-- Corporate Workshops -->
+                <!-- Events Counter -->
                 <div class="col-lg-3 col-md-6 col-sm-12 counter-item mb-4">
                     <div class="icon"><i class="fas fa-building"></i></div>
-                    <div class="counter" data-count="12">0</div>
+                    <?php
+                    $events_sql = "SELECT COUNT(*) as event_count FROM events WHERE status = 1";
+                    $events_result = $con->query($events_sql);
+                    $event_count = ($events_result && $events_result->num_rows > 0) ? $events_result->fetch_assoc()['event_count'] : 0;
+                    ?>
+                    <div class="counter" data-count="<?php echo $event_count; ?>"><?php echo $event_count; ?></div>
                     <div class="text">Corporate Workshops</div>
                 </div>
             </div>
@@ -186,7 +206,7 @@ if (isset($_POST['contact'])) {
 
     <section class="about-us" id="about-us">
         <div class="text-center">
-            <h1 class="m-5"><span class="letter">A</span>about <span class="letter">U</span>s</h1>
+            <h1 class="m-5"><span class="letter">A</span>bout <span class="letter">U</span>s</h1>
         </div>
         <div class="container">
             <div class="row">
@@ -215,27 +235,27 @@ if (isset($_POST['contact'])) {
                 <!-- Team Member 1 -->
                 <?php
                 // Perform SQL query to fetch data from the database
-                    $sql = "SELECT * FROM team_members WHERE status=1";
-                    $result = $con->query($sql);
+                $sql = "SELECT * FROM team_members WHERE status=1";
+                $result = $con->query($sql);
 
-                    // Check if the query was successful
-                    if ($result) {
-                        // Fetch data and dynamically generate team members
-                        while ($row = $result->fetch_assoc()) {
-                            
-                            echo '<div class="col-lg-3">';
-                            echo '<div class="team-member">';
-                            echo '<img src="admin/' . $row['member_image'] . '" alt="' . $row['member_name'] . '" class="img-fluid">';
-                            echo '<div class="member-info">';
-                            echo '<h3>' . $row['member_name'] . '</h3>';
-                            echo '<p>' . $row['member_role'] . '</p>';
-                            echo '</div>';
-                            echo '</div>';
-                            echo '</div>';
-                            }
-                    } else {
-                        echo "Error: " . $sql . "<br>" . $con->error;
+                // Check if the query was successful
+                if ($result) {
+                    // Fetch data and dynamically generate team members
+                    while ($row = $result->fetch_assoc()) {
+
+                        echo '<div class="col-lg-3">';
+                        echo '<div class="team-member">';
+                        echo '<img src="admin/' . $row['member_image'] . '" alt="' . $row['member_name'] . '" class="img-fluid">';
+                        echo '<div class="member-info">';
+                        echo '<h3>' . $row['member_name'] . '</h3>';
+                        echo '<p>' . $row['member_role'] . '</p>';
+                        echo '</div>';
+                        echo '</div>';
+                        echo '</div>';
                     }
+                } else {
+                    echo "Error: " . $sql . "<br>" . $con->error;
+                }
                 ?>
             </div>
         </div>
@@ -248,132 +268,86 @@ if (isset($_POST['contact'])) {
             <h1 class="text-center mb-5"><span class="letter">O</span>ur <span class="letter">C</span>ourses</h1>
 
             <div class="row">-->
-<!--
+    <!--
             
          <?php
-           $sql = "SELECT t_name, t_image FROM course WHERE status=1";
-            $result = mysqli_query($con, $sql);
+         $sql = "SELECT t_name, t_image FROM course WHERE status=1";
+         $result = mysqli_query($con, $sql);
 
-            // Check if the query was successful
-            if ($result) {
-                // Fetch data and display course cards
-                while ($row = mysqli_fetch_assoc($result)) {
-                    echo '<div class="col-lg-3 col-md-6 mb-4">';
-                    echo '<div class="card">';
-                    echo '<img src="admin/image/' . $row['t_image'] . '" class="card-img-top" alt="Course Image" style="height: 180px;">';
-                    echo '<div class="card-body text-center">';
-                    echo '<h5 class="card-title">' . $row['t_name'] . '</h5>';
-                    echo '<a href="'. $row['t_name'] . '.php" class="btn btn-primary btn-learn-more">Learn More</a>';
-                    echo '</div>';
-                    echo '</div>';
-                    echo '</div>';
-                }
-            } 
-            else 
-            {
-                echo "Error: " . $sql . "<br>" . mysqli_error($con);
-            }
-            ?>
+         // Check if the query was successful
+         if ($result) {
+             // Fetch data and display course cards
+             while ($row = mysqli_fetch_assoc($result)) {
+                 echo '<div class="col-lg-3 col-md-6 mb-4">';
+                 echo '<div class="card">';
+                 echo '<img src="admin/image/' . $row['t_image'] . '" class="card-img-top" alt="Course Image" style="height: 180px;">';
+                 echo '<div class="card-body text-center">';
+                 echo '<h5 class="card-title">' . $row['t_name'] . '</h5>';
+                 echo '<a href="' . $row['t_name'] . '.php" class="btn btn-primary btn-learn-more">Learn More</a>';
+                 echo '</div>';
+                 echo '</div>';
+                 echo '</div>';
+             }
+         } else {
+             echo "Error: " . $sql . "<br>" . mysqli_error($con);
+         }
+         ?>
             </div>
         </div>
     </section>-->
 
     <!-- Categories Section -->
-    <section class="categories">
-        <div class="container">
-            <h1 class="text-center mb-5"><span class="letter">O</span>ur <span class="letter">C</span>ategories</h1>
-        <!-- hello github -->
-            <div class="row">
-                <?php
-                // Modified query to only show active categories and active members
-                $sql = "SELECT c.id, c.category_name, c.category_code, c.image 
-                        FROM categories c 
-                        WHERE c.status = 1";
-                $result = mysqli_query($con, $sql);
 
-                if ($result) {
-                    while ($row = mysqli_fetch_assoc($result)) {
-                        // Get a random active board member from this category
-                        $cat_id = $row['id'];
-                        $member_sql = "SELECT member_name, business_name, contact_number, photo 
-                                     FROM board_members 
-                                     WHERE category_id = $cat_id 
-                                     AND status = 1 
-                                     ORDER BY RAND() LIMIT 1";
-                        $member_result = mysqli_query($con, $member_sql);
-                        $member = mysqli_fetch_assoc($member_result);
-                        
-                        // Only display if there's an active member
-                        if ($member) {
-                            echo '<div class="col-lg-3 col-md-6 mb-4">';
-                            echo '<div class="card h-100">';
-                            if ($member['photo']) {
-                                echo '<img src="admin/image/' . $member['photo'] . '" class="card-img-top" alt="Member Image" style="height: 200px; object-fit: cover;">';
-                            } else {
-                                echo '<img src="admin/' . $row['image'] . '" class="card-img-top" alt="Category Image" style="height: 200px; object-fit: cover;">';
-                            }
-                            echo '<div class="card-body text-center">';
-                            echo '<h5 class="card-title">' . $row['category_name'] . '</h5>';
-                            echo '<p class="card-text">' . $member['business_name'] . '</p>';
-                            echo '<p class="card-text"><i class="fas fa-phone"></i> ' . $member['contact_number'] . '</p>';
-                            echo '<a href="category_details.php?id=' . $row['id'] . '" class="btn btn-primary">View Members</a>';
-                            echo '</div>';
-                            echo '</div>';
-                            echo '</div>';
-                        }
-                    }
-                }
-                ?>
+
+    <!-- Event Section -->
+    <section class="event">
+        <div class="container">
+            <h1 class="text-center mb-5"><span class="letter">E</span>vents</h1>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card h-100">
+                        <img src="image/index1.jpg" class="card-img-top" alt="Event 1"
+                            style="height: 200px; object-fit: cover;">
+                        <div class="card-body">
+                            <h5 class="card-title">Business Development Seminar</h5>
+                            <p class="card-text">
+                                <i class="fas fa-map-marker-alt"></i> Location: Tilak Road<br>
+                                <i class="far fa-calendar-alt"></i> Date: 6-01-2024
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card h-100">
+                        <img src="image/g1.jpeg" class="card-img-top" alt="Event 2"
+                            style="height: 200px; object-fit: cover;">
+                        <div class="card-body">
+                            <h5 class="card-title">Networking Workshop</h5>
+                            <p class="card-text">
+                                <i class="fas fa-map-marker-alt"></i> Location: Kothrud<br>
+                                <i class="far fa-calendar-alt"></i> Date: 13-01-2024
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card h-100">
+                        <img src="image/g2.jpeg" class="card-img-top" alt="Event 3"
+                            style="height: 200px; object-fit: cover;">
+                        <div class="card-body">
+                            <h5 class="card-title">Business Meet</h5>
+                            <p class="card-text">
+                                <i class="fas fa-map-marker-alt"></i> Location: Narhe<br>
+                                <i class="far fa-calendar-alt"></i> Date: 20-01-2024
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
-
-    <!-- Event Section -->
-<section class="event">
-    <div class="container">
-        <h1 class="text-center mb-5"><span class="letter">E</span>vents</h1>
-        <div class="row">
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card h-100">
-                    <img src="image/index1.jpg" class="card-img-top" alt="Event 1" style="height: 200px; object-fit: cover;">
-                    <div class="card-body">
-                        <h5 class="card-title">Business Development Seminar</h5>
-                        <p class="card-text">
-                            <i class="fas fa-map-marker-alt"></i> Location: Tilak Road<br>
-                            <i class="far fa-calendar-alt"></i> Date: 6-01-2024
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card h-100">
-                    <img src="image/g1.jpeg" class="card-img-top" alt="Event 2" style="height: 200px; object-fit: cover;">
-                    <div class="card-body">
-                        <h5 class="card-title">Networking Workshop</h5>
-                        <p class="card-text">
-                            <i class="fas fa-map-marker-alt"></i> Location: Kothrud<br>
-                            <i class="far fa-calendar-alt"></i> Date: 13-01-2024
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card h-100">
-                    <img src="image/g2.jpeg" class="card-img-top" alt="Event 3" style="height: 200px; object-fit: cover;">
-                    <div class="card-body">
-                        <h5 class="card-title">Business Meet</h5>
-                        <p class="card-text">
-                            <i class="fas fa-map-marker-alt"></i> Location: Narhe<br>
-                            <i class="far fa-calendar-alt"></i> Date: 20-01-2024
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
     <!-- Reviews Section -->
 
     <section id="review">
@@ -404,7 +378,6 @@ if (isset($_POST['contact'])) {
                                         <div class="testimonials-text-before"><i class="fa fa-quote-right"></i></div>
                                         <div class="testimonials-text">
                                             <p style="text-align: justify;font-size:13px;">' . $row['testimonialText'] . '</p>
-                                            <img src="admin/' . $row['studentImage'] . '" alt="Student Image" class="student-image" width="50px" height="50px" style="border-radius: 50%;">
                                             <div class="testimonials-avatar">
                                                 <h3>' . $row['studentName'] . '</h3>
                                                 <h4>' . $row['courseName'] . '</h4>
@@ -412,21 +385,22 @@ if (isset($_POST['contact'])) {
                                         </div>
                                     </div>
                                 </div>';
+                        }
+                        echo '</div>';
+                    } else {
+                        echo "<p class='text-center'>No testimonials found!</p>";
                     }
-                    echo '</div>';
-                } else {
-                    echo "<p class='text-center'>No testimonials found!</p>";
-                }
-                ?>
+                    ?>
+                </div>
             </div>
+            <div class="tc-pagination"></div>
         </div>
-        <div class="tc-pagination"></div>
-    </div>
-</section>
+    </section>
 
-
+    <!--                                             <img src="admin/' . $row['studentImage'] . '" alt="Student Image" class="student-image" width="50px" height="50px" style="border-radius: 50%;">
+ -->
     <!-- Contact Section -->
-
+    <!-- 
     <section class="contact-us">
         <div class="container">
             <h1><span class="letter">C</span>ontact <span class="letter">U</span>s</h1>
@@ -473,53 +447,53 @@ if (isset($_POST['contact'])) {
                     </div>
                 </div>
             </div>
-    </section>
+    </section> -->
 
     <!-- Matrix Section -->
     <?php
-    if(isset($_SESSION['board_member_id'])) { ?>
-    <section class="matrices">
-        <div class="container">
-            <h1 class="text-center mb-5"><span class="letter">M</span>y <span class="letter">M</span>atrix</h1>
+    if (isset($_SESSION['board_member_id'])) { ?>
+        <section class="matrices">
+            <div class="container">
+                <h1 class="text-center mb-5"><span class="letter">M</span>y <span class="letter">M</span>atrix</h1>
 
-            <div class="row">
-                <?php
-                // Only fetch matrices where the board member belongs to
-                $member_id = $_SESSION['board_member_id'];
-                $sql = "SELECT m.* FROM matrices m 
+                <div class="row">
+                    <?php
+                    // Only fetch matrices where the board member belongs to
+                    $member_id = $_SESSION['board_member_id'];
+                    $sql = "SELECT m.* FROM matrices m 
                         INNER JOIN board_members bm ON m.id = bm.matrix_id 
                         WHERE bm.id = ? AND m.status = 1";
-                $stmt = $con->prepare($sql);
-                $stmt->bind_param("i", $member_id);
-                $stmt->execute();
-                $result = $stmt->get_result();
+                    $stmt = $con->prepare($sql);
+                    $stmt->bind_param("i", $member_id);
+                    $stmt->execute();
+                    $result = $stmt->get_result();
 
-                if ($result && $result->num_rows > 0) {
-                    while ($row = $result->fetch_assoc()) {
-                        echo '<div class="col-lg-4 col-md-6 mb-4">';
-                        echo '<div class="card">';
-                        echo '<img src="admin/image/' . $row['matrix_image'] . '" class="card-img-top" alt="Matrix Image" style="height: 180px;">';
-                        echo '<div class="card-body text-center">';
-                        echo '<h5 class="card-title">' . $row['matrix_name'] . '</h5>';
-                        echo '<p class="card-text">Area: ' . $row['matrix_area'] . '</p>';
-                        echo '<a href="matrix_details.php?id=' . $row['id'] . '" class="btn btn-primary">View Details</a>';
-                        echo '</div>';
-                        echo '</div>';
+                    if ($result && $result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                            echo '<div class="col-lg-4 col-md-6 mb-4">';
+                            echo '<div class="card">';
+                            echo '<img src="admin/image/' . $row['matrix_image'] . '" class="card-img-top" alt="Matrix Image" style="height: 180px;">';
+                            echo '<div class="card-body text-center">';
+                            echo '<h5 class="card-title">' . $row['matrix_name'] . '</h5>';
+                            echo '<p class="card-text">Area: ' . $row['matrix_area'] . '</p>';
+                            echo '<a href="matrix_details.php?id=' . $row['id'] . '" class="btn btn-primary">View Details</a>';
+                            echo '</div>';
+                            echo '</div>';
+                            echo '</div>';
+                        }
+                    } else {
+                        echo '<div class="col-12 text-center">';
+                        echo '<p>No matrices found.</p>';
                         echo '</div>';
                     }
-                } else {
-                    echo '<div class="col-12 text-center">';
-                    echo '<p>No matrices found.</p>';
-                    echo '</div>';
-                }
-                ?>
+                    ?>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
     <?php } ?>
 
     <!-- Footer -->
-    <?php include('footer.php');?>
+    <?php include('footer.php'); ?>
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -533,112 +507,113 @@ if (isset($_POST['contact'])) {
     <script src="js/event.js"></script>
 
     <script>
-    document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
+            const carousel = new bootstrap.Carousel(document.getElementById('carouselExampleControls'), {
+                interval: 1000,
+                wrap: true,
+                keyboard: false,
+                touch: true
+            });
+            carousel.cycle();
+
+            // About section scroll
+            if (window.location.hash === '#about-us') {
+                setTimeout(function () {
+                    const aboutSection = document.getElementById('about-us');
+                    if (aboutSection) {
+                        aboutSection.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                        window.scrollBy(0, -80);
+                    }
+                }, 100);
+            }
+        });
+    </script>
+</body>
+
+</html>
+<style>
+    .slider {
+        position: relative;
+        overflow: hidden;
+        margin: 20px auto;
+    }
+
+    .slider .list {
+        position: relative;
+        left: 0;
+        transition: left 0.5s ease-in-out;
+    }
+
+    .slider .item {
+        flex: 0 0 100%;
+        max-width: 100%;
+        padding: 0 15px;
+    }
+
+    .slider .item img {
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+
+    .slider .buttons {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 100%;
+        padding: 0 20px;
+    }
+
+    .slider .dots {
+        margin-top: 20px;
+    }
+
+    .slider .dots li {
+        width: 10px;
+        height: 10px;
+        background: #ccc;
+        border-radius: 50%;
+        cursor: pointer;
+        margin: 0 5px;
+    }
+
+    .slider .dots li.active {
+        background: #007bff;
+    }
+</style>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
         const carousel = new bootstrap.Carousel(document.getElementById('carouselExampleControls'), {
             interval: 1000,
             wrap: true,
             keyboard: false,
             touch: true
         });
-        carousel.cycle();
 
-        // About section scroll
+        // Start auto-sliding
+        carousel.cycle();
+    });
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Check if URL has #about-us hash
         if (window.location.hash === '#about-us') {
-            setTimeout(function() {
+            setTimeout(function () {
                 const aboutSection = document.getElementById('about-us');
                 if (aboutSection) {
-                    aboutSection.scrollIntoView({ 
+                    aboutSection.scrollIntoView({
                         behavior: 'smooth',
                         block: 'start'
                     });
+                    // Adjust for fixed navbar
                     window.scrollBy(0, -80);
                 }
             }, 100);
         }
     });
-    </script>
-</body>
-</html>
-<style>
-.slider {
-    position: relative;
-    overflow: hidden;
-    margin: 20px auto;
-}
-
-.slider .list {
-    position: relative;
-    left: 0;
-    transition: left 0.5s ease-in-out;
-}
-
-.slider .item {
-    flex: 0 0 100%;
-    max-width: 100%;
-    padding: 0 15px;
-}
-
-.slider .item img {
-    width: 100%;
-    height: 400px;
-    object-fit: cover;
-    border-radius: 8px;
-}
-
-.slider .buttons {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 100%;
-    padding: 0 20px;
-}
-
-.slider .dots {
-    margin-top: 20px;
-}
-
-.slider .dots li {
-    width: 10px;
-    height: 10px;
-    background: #ccc;
-    border-radius: 50%;
-    cursor: pointer;
-    margin: 0 5px;
-}
-
-.slider .dots li.active {
-    background: #007bff;
-}
-</style>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const carousel = new bootstrap.Carousel(document.getElementById('carouselExampleControls'), {
-        interval: 1000,
-        wrap: true,
-        keyboard: false,
-        touch: true
-    });
-    
-    // Start auto-sliding
-    carousel.cycle();
-});
-</script>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    // Check if URL has #about-us hash
-    if (window.location.hash === '#about-us') {
-        setTimeout(function() {
-            const aboutSection = document.getElementById('about-us');
-            if (aboutSection) {
-                aboutSection.scrollIntoView({ 
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-                // Adjust for fixed navbar
-                window.scrollBy(0, -80);
-            }
-        }, 100);
-    }
-});
 </script>
 </body>
