@@ -1,0 +1,37 @@
+.latter{
+    color: #00b9fe;
+}
+h2 {
+    color: black;
+    font-size: 40px!important;
+    border-bottom: 2px solid #00b9fe;
+   
+}
+.job-card {
+    max-width: 1100px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 20px!important;
+    height: 380px!important; /* Adjust this value as needed */
+    overflow: hidden; /* Add this to hide overflow content */
+}
+
+
+.apply-button {
+    display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  background-color: #3498db;
+  color: #ffffff;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+.apply-button:hover{
+    background-color: #00b9fe;
+    border: #00b9fe;
+}

@@ -1,0 +1,55 @@
+
+/* Footer Styles */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;  
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between; /* Distribute content evenly */
+    max-width: 1200px; /* Set the maximum width for the content */
+    margin: 0 100px; /* Center the content horizontally */
+}
+
+.copyright p {
+    color: #fff;
+    font-size: 17px;
+}
+
+.social-media-icons {
+    margin-top: 11px;
+    display: flex;
+}
+.social-media-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    width: 40px;
+    height: 40px;
+    background-color: whitesmoke; /* Circle background color */
+    border-radius: 50%;
+    margin-left: 10px; /* Add margin to the left of each icon */
+    transition: background-color 0.3s ease-in-out;
+    
+    }
+    .fa-instagram{
+        color: hotpink;
+    }
+    .fa-pinterest{
+        color: red;
+    }
+    .fa-youtube
+    {
+        color: red;
+    }
+    .fa-facebook-f
+    {
+        color: #1877f2;
+    }
+    .fa-twitter
+    {
+        color: #1da1f2;
+    }

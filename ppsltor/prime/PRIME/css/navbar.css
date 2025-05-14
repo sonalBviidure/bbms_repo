@@ -1,0 +1,111 @@
+
+*
+{
+    font-family: 'Cambria';
+   
+}
+ul, li, a {
+    margin: 0;
+    padding: 0;
+    color: #02236d!important;
+    list-style: none;
+    text-decoration: none;
+   
+}
+.fixed-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+body.fixed-navbar-padding {
+    padding-top: 60px; /* Adjust this value based on your navbar height */
+}
+/* Main Navigation Styles */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 98%;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 17px;
+    margin-top: -10px;
+    z-index: 1000; /* Set a higher z-index to make sure it appears above other elements */
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 100px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.nav-links {
+    display: flex;
+}
+
+.nav-links li {
+    margin-right: 20px;
+}
+
+.nav-links a {
+    color: 02236d;
+    font-weight: bold;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #00b9fe; /* Change to your desired hover color */
+}
+
+/* Submenu Styles */
+.submenu {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.nav-links li:hover .submenu {
+    display: block;
+}
+
+.submenu li {
+    width: 150px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.submenu a {
+    color: 02236d;
+}
+
+.submenu a:hover {
+    color: #00b9fe;
+}
+/* User Account Styles */
+.user-account a {
+    margin-left: 20px;
+    color: 02236d;
+    font-weight: bold;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.user-account a:hover {
+    color: #00b9fe; /* Change to your desired hover color */
+}
+.navbar-light .navbar-nav .nav-link {
+    color: rgba(0, 0, 0, .5);
+}
