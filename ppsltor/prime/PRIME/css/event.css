@@ -1,0 +1,205 @@
+.letter
+{
+    color: #00b9fe;
+}
+/* .slider-heading
+    {
+        text-align: center;
+        color: #121212;
+        font-size: 40px!important;
+        padding-top: 70px;
+    }    
+    .event .slider{
+        width: 40%!important; 
+        max-width: 100%!important; 
+        height: 300px;
+        margin: auto;
+        position: relative;
+        overflow: hidden;
+        border-radius: 20px;
+        margin-bottom: 10px;
+    }
+    .event .slider .list{
+        position: absolute;
+        width: max-content;
+        height: 100%;
+        left: 0;
+        top: 0;
+        display: flex;
+        transition: 1.5s;
+    }
+    .event .slider .list img{
+      width: 100%!important;
+      height: 100%!important;
+      object-fit: cover!important;
+      margin-right: 10px!important; 
+    }
+    .event .slider .buttons{
+        position: absolute;
+        top: 45%;
+        left: 5%;
+        width: 90%;
+        display: flex;
+        justify-content: space-between;
+    }
+    .event .slider .buttons button{
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: #fff5;
+        color: #fff;
+        border: none;
+        font-family: monospace;
+        font-weight: bold;
+    }
+    .event .slider .dots{
+        position: absolute;
+        bottom: 10px;
+        left: 0;
+        color: #fff;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+    }
+    .event .slider .dots li{
+        list-style: none;
+        width: 8px;
+        height: 8px;
+        background-color: #fff;
+        margin: 10px;
+        border-radius: 20px;
+        transition: 1.5s;
+    }
+    .event .slider .dots li.active{
+        width: 30px;
+    }
+   
+    .event .event-info {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.7);
+        color: #fff;
+        text-align: center;
+    }
+    
+    
+    .back-button-container {
+        text-align: center;
+        margin-top: 20px;
+      }
+      
+      .back-button {
+        background-color: #dee5ec;
+        color: rgb(43, 42, 42);
+        padding: 15px 25px;
+        text-decoration: none;
+        border-radius: 30px;
+        font-size: 18px;
+        font-weight: bold;
+        transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+        position: fixed;
+                  top: 100px;
+                  left: 20px;
+                  cursor: pointer;
+                  border: none;
+                  z-index: 9999;
+                  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+      }
+      
+      
+      .back-button:hover {
+        background-color: #0056b3;
+        transform: translateY(-2px);
+        box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+      }
+      *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        list-style: none;
+        list-style-type: none;
+        text-decoration: none;
+      }
+      .slider-heading {
+        text-align: center;
+        padding-top: 80px; 
+      
+      .slider-heading h1 {
+        color: #02236d; 
+      }
+      
+     
+      @media (max-width: 768px) {
+        .slider-heading {
+          padding-top: 80px; 
+        }
+      }
+      
+      .copyright p{
+        padding-top: 12px;
+      }
+
+    
+     */
+     .card {
+      height: 100% !important; /* Ensure all cards take up full height */
+      display: flex;
+      flex-direction: column;
+      border-radius: 10px; /* Rounded corners for the card */
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add box shadow for a 3D effect */
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 25px;
+    }
+  
+    .square-img-container {
+      position: relative;
+      overflow: hidden;
+      padding-top: 100%; /* Create a square container based on percentage */
+    }
+  
+    .square-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%; /* Ensure the image fills the square container */
+      object-fit: cover; /* Maintain aspect ratio and cover the container */
+    }
+  
+    .card-body {
+      padding: 20px; /* Add padding for card content */
+      flex-grow: 1; /* Allow card body to expand within the card */
+    color: white;
+    background-color: gray;
+    }
+  
+    .card-title {
+      font-size: 25px; /* Increase title font size */
+      margin-bottom: 10px; /* Add margin below title */
+      font-weight: bold;
+      color:white; 
+    }
+  
+    .card-text {
+      margin-bottom: 5px; /* Add margin below text content */
+     
+    }
+  
+    .icon-color {
+      color:#00b9fe!important; /* Default icon color */
+      margin-right: 8px; /* Add spacing between icon and text */
+    }
+  
+    .marker-color {
+      color: #00b9fe!important; /* Red color for marker icon */
+      font-size: 22px;
+    }
+   /* a{
+          color: #00b9fe!important;
+          text-decoration: underline;
+      } */
+    
